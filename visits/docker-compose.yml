@@ -1,0 +1,15 @@
+#Version of the Docker-compose
+version: '3'
+services: 
+#Create the following service:
+  redis-server:
+ #Use the following image inside the service: 
+    image: 'redis'
+  node-app:
+#Specify restart policy for this specific service    
+    restart: on-failure
+#Use the Dockerfile to create the service
+    build: . 
+#Specify ports - First is inside the local machine, Second inside the ocntainer
+    ports:
+      - '4001:8081'
